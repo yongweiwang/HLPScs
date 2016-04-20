@@ -14,27 +14,27 @@ Test
 %For 2D problem, the type equal to ("Isotropic": isotropic; "Orthotropic": orthotropic)
 %The input order in every row likes: Isotropic E; Orthotropic E11 E22 Nu12.
 Nonlocal_Stiffness_2D
-Orthotropic 38500 38500 0.24
-%Isotropic 200000
+%Orthotropic 100000 300000 0.3
+Isotropic 200000
 %------------------------------------------------------------------------------------------------------------------------------------------------------------
 %Please input peridynamic(non-local continuum) parameters: the radius of horizon, the intrinsic length and the ratio of broken bond.
 Peridynamic_Parameters
-1.5 0.3 1.24
+0.12 0.024 1.2
 %------------------------------------------------------------------------------------------------------------------------------------------------------------
 %Please input grid sizes for estimating the effective stiffness.
 Nonlocal_Grid_Size
-0.5 0.5 0.5
+0.001 0.001 0.001
 %Please the number (0<num<100) of Gauss points in 1D for the effective stiffness.
 Nonlocal_Gauss
 4
 %------------------------------------------------------------------------------------------------------------------------------------------------------------
 %Please input geometric parameters of RVE: the lower-left corner point of RVE and the length, width and height of RVE.
 RVE_Geometry
-0 0 0 240 80 1
+0 0 0 2 1 1
 %------------------------------------------------------------------------------------------------------------------------------------------------------------
 %Please input grid size of RVE: the size of background grids (length, width and height).
 Grid_Size
-0.5 0.5 0.5
+0.04 0.04 0.04
 %------------------------------------------------------------------------------------------------------------------------------------------------------------
 %Please input parameters of weight function: first input number of weight functions and type of coupling area.
 %if the type is "Null", that denotes no weighting domain at the begining for adaptive algorithm
@@ -50,7 +50,7 @@ Null Linear
 %------------------------------------------------------------------------------------------------------------------------------------------------------------
 %Please input parameters of damage. First input the critical parameter of damage (0<d_crit<1), then input k1 and k0, which are the parameters of pseudo potentials. 
 Damage
-1.0 0.1 0.02
+1.0 4500 900
 %------------------------------------------------------------------------------------------------------------------------------------------------------------
 %Please input the type of model and discretization.
 %First keyword denotes the model: "Local" and "Nonlocal" represent only local or nonlocal model; "Hybrid" represents a coupled model by local and nonlocal.
@@ -86,13 +86,9 @@ Load_2D
 %Fixed_displacement is a sign denoting the value of fixed displacement will be followed.
 %For 2D problem, boundary_case=Line, then input 4 parameters p0.x, p0.y, p1.x, p1.y
 Displacement_2D
-3
-Point 0 0 Fixed_displacement_x 0.0 Fixed_displacement_y 0.0
-Point 240 0 Fixed_displacement_y 0.0
-%Point 120 80 Fixed_displacement_y -10.0
-Line 118.5 80 121.5 80 Fixed_displacement_y -0.2
-%------------------------------------------------------------------------------------------------------------------------------------------------------------
-%Please input the parameters for the force-displacement plot of three point bending
-%For 2D: cx0, cx1, cy0, total_displacement (an absolute value) 
-Force_Disp_TPB_2D
-118.5 121.5 80 0.2
+4
+Line 0 0 0 1 Fixed_displacement_x 0.0
+Line 2 0 2 1 Fixed_displacement_x 0.03
+Line 0 1 2 1 Fixed_displacement_y 0.0
+Line 0 0 2 0 Fixed_displacement_y 0.0
+%Point 0 0 Fixed_displacement_y 0.0

@@ -170,7 +170,7 @@ int Postprocessor::Treatment_2D(Input *Init, const vector<vector<Node> > &nodes_
 	//Export boundary force displacement curve for 2D three point bending
 	cout<<"    Exporting force-displacement curve..."<<endl;
 	hout<<"    Exporting force-displacement curve..."<<endl;
-	Export_Force_Displacement_Curve("./Results/Force_displacement_curve.dat", TPB_force_yy, Init->force_disp.delta_disp);
+//	Export_Force_Displacement_Curve("./Results/Force_displacement_curve.dat", TPB_force_yy, Init->force_disp.delta_disp);
 
 	//-----------------------------------------------------------------------------------------------------------------------------------------
 	//Export dissipative energy
